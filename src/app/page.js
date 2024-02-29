@@ -15,9 +15,8 @@ export default function Home() {
 
 
   return (
-   <div>
-    <h1>hello world</h1>
-    <div>
+   <div className='bg-[#FDF7E4] '>
+    <div className='grid grid-cols-4 gap-4 p-3'>
         {books.map((book) => (
           <div key={book.id}>
             <img width={100} src={book.image_url} alt={`${book.image_url}`} />
