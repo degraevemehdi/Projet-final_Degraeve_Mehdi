@@ -25,27 +25,26 @@ export default function NavBar(){
                 <div>    
                     <Image src={library} alt={`${library}'s image`} width={50} height={75}></Image>
                 </div>
-                <Sheet>
-  <SheetTrigger>Open</SheetTrigger>
-  <SheetContent>
-    <SheetHeader>
-      <SheetTitle>Are you absolutely sure?</SheetTitle>
-      <SheetDescription>
-        This action cannot be undone. This will permanently delete your account
-        and remove your data from our servers.
-      </SheetDescription>
-    </SheetHeader>
-  </SheetContent>
-</Sheet>
-                {/* <div className="flex justify-between items-center gap-4">
+                <div className="flex justify-between items-center gap-4">
                     <Link href={'/'}>Home</Link> 
                     <Link href={'/contact'}>Contact</Link>
                     <Link  className='flex items-center'href={'/login'}><FiLogIn /> <span className="ml-2">Connexion</span>
                     </Link>
-                    <Link href={'/favorites'} className="flex items-center">
+                    
+                </div>
+                <Sheet>
+                  <SheetTrigger className="flex items-center gap-1"><FiHeart />Favorite</SheetTrigger>
+                  <SheetContent>
+                    <SheetHeader>
+                      <SheetTitle><Link href={'/favorites'} className="flex items-center">
                             <FiHeart /> <span className="ml-2">Favoris</span>
-                    </Link>
-                </div> */}
+                    </Link></SheetTitle>
+                      <SheetDescription>
+                      </SheetDescription>
+                    </SheetHeader>
+                  </SheetContent>
+                </Sheet>
+                
 
 
         </div>
