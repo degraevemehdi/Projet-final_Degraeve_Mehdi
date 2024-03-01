@@ -1,5 +1,5 @@
 'use client'
-
+import style from '../../style/all.module.css'
 import { useState, useEffect } from 'react';
 
 export default function Home() {
@@ -12,20 +12,16 @@ export default function Home() {
       .catch((error) => console.error('Error fetching data:', error));
   }, []);
   
-
-
   return (
-   <div className='bg-[#FDF7E4] '>
+   <div>
     <div className='grid grid-cols-4 gap-4 p-3'>
         {books.map((book) => (
-          <div key={book.id}>
-            <img width={100} src={book.image_url} alt={`${book.image_url}`} />
-            <strong>{book.title} </strong> par {book.author}
-            
+          <div className='flex flex-col items-center' key={book.id}>
+            <img className={style.image}src={book.image_url} alt={`${book.image_url}`} />
           </div>
         ))}
       </div>
 
-   </div>
+  </div>
   );
   }
