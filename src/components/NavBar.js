@@ -1,3 +1,4 @@
+
 import Image from "next/image";
 // import style from "../style/navbar.module.css"
 import library from '../../public/library.svg'
@@ -21,25 +22,27 @@ import {
 export default function NavBar(){
     
     return(
-        <div className=" flex justify-between py-3 px-6  text-black	">
+        <div className="nav flex justify-between py-3 px-6  text-black	">
                 <div>    
                     <Image src={library} alt={`${library}'s image`} width={50} height={75}></Image>
                 </div>
                 <div className="flex justify-between items-center gap-4">
                     <Link href={'/'}>Home</Link> 
-                    <Link href={'/contact'}>Contact</Link>
+                    <Link href={'/register'}>Register</Link>
                     <Link  className='flex items-center'href={'/login'}><FiLogIn /> <span className="ml-2">Connexion</span>
                     </Link>
                     
                 </div>
                 <Sheet>
-                  <SheetTrigger className="flex items-center gap-1"><FiHeart />Favorite</SheetTrigger>
+                  <SheetTrigger className="flex items-center gap-1"><FiHeart className="icon"/>Favorite</SheetTrigger>
                   <SheetContent>
-                    <SheetHeader>
+                    <SheetHeader >
                       <SheetTitle><Link href={'/favorites'} className="flex items-center">
-                            <FiHeart /> <span className="ml-2">Favoris</span>
+                            <FiHeart  fill="red"/> <span className="ml-2">Favoris</span>
                     </Link></SheetTitle>
                       <SheetDescription>
+                        <strong>Liste de vos favoris</strong>
+
                       </SheetDescription>
                     </SheetHeader>
                   </SheetContent>

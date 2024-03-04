@@ -14,7 +14,8 @@ export default function Home() {
   
   return (
    <div>
-    <div className='grid grid-cols-4 gap-4 p-3'>
+    
+    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 p-3">
         {books.map((book) => (
           <div className='flex flex-col items-center' key={book.id}>
             <img className={style.image}src={book.image_url} alt={`${book.image_url}`} />

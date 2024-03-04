@@ -75,5 +75,9 @@
   }
 }
 body{
-  background-color: #FFEDDB;
+  background-color: #FAEDCD;
+}
+.icon:hover{
+fill: red;
+
 }
