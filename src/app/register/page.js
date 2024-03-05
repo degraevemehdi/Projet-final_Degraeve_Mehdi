@@ -22,8 +22,11 @@ export default function RegisterPage() {
     const handleSubmit = (e) => {
         e.preventDefault();
         dispatch(register(userDetails));
-        setMessage(`Thank you for registering, ${userDetails.username}! Please Sign In for confirmation.`)
+        setMessage(`Thank you for registering, ${userDetails.username}! Please check out you email for confirmation.`)
         // router.push('/login')
+        setTimeout(() => {
+            router.push('/login');
+        }, 3000);
         
     };
 
@@ -120,25 +123,5 @@ export default function RegisterPage() {
 //         </div>
 //     );
 // }
-library-project/src
-library-project/src/app
-library-project/src/app/favorites
-library-project/src/app/login
-library-project/src/app/login/page.js
-library-project/src/app/register
-library-project/src/app/register/page.js
-library-project/src/app/store
-library-project/src/app/store/StoreProvider.js
-library-project/src/app/favicon.ico
-library-project/src/app/globals.css
-library-project/src/app/layout.js
-library-project/src/app/page.js
-library-project/src/components
-library-project/src/components/ui
-library-project/src/components/ui/sheet.jsx
-library-project/src/components/NavBar.js
-library-project/src/lib
-library-project/src/lib/utils.js
-library-project/src/lib/store.js
-library-project/src/lib/features
+
 
