@@ -22,11 +22,12 @@ import {
 export default function NavBar(){
     
     return(
-        <div className="nav flex justify-between py-3 px-6  text-black	">
-                <div>    
-                    <Image src={library} alt={`${library}'s image`} width={50} height={75}></Image>
+        <div className="nav flex justify-between py-3 px-6  text-[#0C356A] bg-[#FFBFBF]">
+                <div className="flex gap-3 items-center  "> 
+                    <Image src={library} alt={`${library}'s image`} width={90} ></Image>
+                    <h1 className="text-3xl font-extrabold">The Book Club</h1>   
                 </div>
-                <div className="flex justify-between items-center gap-4">
+                <div className="flex justify-between items-center gap-4 font-extrabold max-sm:flex-col">
                     <Link href={'/'}>Home</Link> 
                     <Link href={'/register'}>Register</Link>
                     <Link  className='flex items-center'href={'/login'}><FiLogIn /> <span className="ml-2">Connexion</span>
