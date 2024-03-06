@@ -26,7 +26,7 @@ export default function RegisterPage() {
         // router.push('/login')
         setTimeout(() => {
             router.push('/login');
-        }, 3000);
+        }, 2000);
         
     };
 

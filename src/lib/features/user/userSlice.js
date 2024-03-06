@@ -6,6 +6,9 @@ export const userSlice = createSlice({
     isRegistered: false,
     username: '',
     password: '',
+    loginError: null,
+    isLoggedIn: false, // on va suivre l'état de connexion 
+    
   },
   reducers: {
     register: (state, action) => {
@@ -16,18 +19,26 @@ export const userSlice = createSlice({
     
       localStorage.setItem('registeredUser', JSON.stringify({ username, password }));
     },
-    login: (state, action) => {
-      const { username, password } = action.payload;
-      const registeredUser = JSON.parse(localStorage.getItem('registeredUser'));
-      if (registeredUser && registeredUser.username === username && registeredUser.password === password) {
-        alert('Login successful!');
-      } else {
-        alert('Login failed: User not found or password does not match.');
-      }
-    },
+    // login: (state, action) => {
+    //   const { username, password } = action.payload;
+    //   const registeredUser = JSON.parse(localStorage.getItem('registeredUser'));
+    //   if (registeredUser && registeredUser.username === username && registeredUser.password === password) {
+    //     alert('Login successful!');
+    //   } else {
+    //     alert('Login failed: User not found or password does not match.');
+    //   }
+    // },
+    loginSuccess: (state, action) => {
+      // state.loginSuccess = true;
+      state.isLoggedIn = true;
+      state.username = action.payload.username; 
+  },
+  loginFailure: (state, action) => {
+      state.loginError = action.payload.error;
+  },
   },
 });
 
-export const { register, login } = userSlice.actions;
+export const { register, loginSuccess, loginFailure } = userSlice.actions;
 
 export default userSlice.reducer;
