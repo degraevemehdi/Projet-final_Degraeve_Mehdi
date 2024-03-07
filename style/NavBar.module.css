@@ -1,0 +1,9 @@
+.bookcontainer{
+    max-height: 50%;
+    margin-inline: 2rem;
+    display: flex;
+    justify-content: space-evenly;
+    
+    background-color: #FFBFBF;
+    padding: 2rem;
+}

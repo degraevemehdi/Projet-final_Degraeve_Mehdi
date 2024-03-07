@@ -1,5 +1,6 @@
 
 import { Roboto_Slab } from "next/font/google";
+
 import "./globals.css";
 import NavBar from "@/components/NavBar";
 import  StoreProvider  from "./store/StoreProvider";
