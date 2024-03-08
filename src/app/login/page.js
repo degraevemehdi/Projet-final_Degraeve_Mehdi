@@ -36,10 +36,10 @@ export default function LoginPage() {
     };
 
     return (
-        <div className="bg-[#FFEDDB] flex justify-center items-center h-screen">
-            <form onSubmit={handleSubmit} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+        <div className="bg-[#FFE5E5] flex justify-center items-center h-screen">
+            <form onSubmit={handleSubmit} className="bg-[#FFBFBF] shadow-md rounded px-8 pt-6 pb-8 mb-4 w-[400px] h-[400px]">
                 <div className="mb-4">
-                    <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="username">Utilisateur</label>
+                    <label className="block text-[#0C356A] text-sm font-bold mb-2" htmlFor="username">Utilisateur</label>
                     <input
                         className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                         id="username"
@@ -50,7 +50,7 @@ export default function LoginPage() {
                     />
                 </div>
                 <div className="mb-6">
-                    <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="password">Mot de passe</label>
+                    <label className="block text-[#0C356A] text-sm font-bold mb-2" htmlFor="password">Mot de passe</label>
                     <input
                         className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
                         id="password"
@@ -61,11 +61,11 @@ export default function LoginPage() {
                     />
                 </div>
                 <div className="flex items-center justify-between">
-                    <button className="bg-[#EDCDBB] hover:bg-[#BF9270] text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+                    <button className="bg-[#0C356A] hover:bg-[#104d9d] text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
                         Log in
                     </button>
                 </div>
-                {loginError && <div className="text-red-500">{loginError}</div>}
+                {loginError && <div className="text-red-500 py-3">{loginError}</div>}
                 {loginSuccess && <div className="text-green-500">{feedbackMessage}</div>}
             </form>
         </div>

@@ -82,3 +82,15 @@ body{
 fill: red;
 
 }
+@keyframes pulse {
+  0%, 100% {
+    transform: translateY(-5px);
+  }
+  50% {
+    transform: translateY(5px);
+  }
+}
+
+.heartanimation {
+  animation: pulse 1s ease-in-out infinite;
+}

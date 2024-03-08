@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import Image from "next/image";
 // import style from "../style/navbar.module.css"
 import library from '../../public/library.svg'
+import moon from '../../public/darkmode.svg'
 import Link from "next/link";
 import { FiLogIn, FiHeart } from "react-icons/fi";
 import { removeFavorite } from "@/lib/features/favorites/favoritesSlice";
@@ -37,7 +38,7 @@ export default function NavBar(){
    
     
     return(
-        <div className="nav flex justify-between py-3 px-6  text-[#0C356A] bg-[#FFBFBF]">
+        <div className=" md:flex justify-between py-3 px-6  text-[#0C356A] bg-[#FFBFBF]">
                 <div className="flex gap-3 items-center  "> 
                     <Image src={library} alt={`${library}'s image`} width={90} ></Image>
                     <h1 className="text-3xl font-extrabold">The Book Club</h1>   
@@ -53,7 +54,8 @@ export default function NavBar(){
                     <Link className='flex items-center' href={'/login'}><FiLogIn /><span className="ml-2">Connexion</span></Link>
                   </>
                 )}
-                </div>
+                  <Image src={moon} alt="darkmode" width={30} className="flex items-center cursor-pointer"></Image>
+               
                 <Sheet>
                 <SheetTrigger className="flex items-center gap-1">
                     <FiHeart className="icon" />Favorite
@@ -89,6 +91,7 @@ export default function NavBar(){
                     </SheetFooter>
                 </SheetContent>
             </Sheet>
+             </div>
                 {/* <Sheet>
                   <SheetTrigger className="flex items-center gap-1"><FiHeart className="icon"/>Favorite</SheetTrigger>
                   <SheetContent>
