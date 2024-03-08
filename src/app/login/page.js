@@ -28,7 +28,7 @@ export default function LoginPage() {
             dispatch(loginSuccess({ username: registeredUser.username }));
             setFeedbackMessage('Connexion réussie. Redirection...')
             setTimeout(() => {
-                router.push('/'); // Redirige vers la page d'accueil
+                router.push('/');
             }, 1000);
         } else {
             dispatch(loginFailure({ error: 'Login failed: User not found or password does not match.' }));

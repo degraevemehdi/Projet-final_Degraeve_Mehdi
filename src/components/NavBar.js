@@ -1,16 +1,12 @@
 'use client'
 import { useSelector, useDispatch } from "react-redux";
-// import { setSearchTerm } from "@/lib/features/search/searchSlice";
 import Image from "next/image";
-// import style from "../style/navbar.module.css"
 import library from '../../public/library.svg'
 import moon from '../../public/darkmode.svg'
 import Link from "next/link";
 import { FiLogIn, FiHeart } from "react-icons/fi";
 import { removeFavorite } from "@/lib/features/favorites/favoritesSlice";
-// import { Button } from "@/components/ui/button"
-// import { Input } from "@/components/ui/input"
-// import { Label } from "@/components/ui/label"
+
 import {
   Sheet,
   SheetClose,
@@ -28,12 +24,14 @@ export default function NavBar(){
   const isLoggedIn = useSelector((state) => state.user.isLoggedIn);
     const username = useSelector((state) => state.user.username);
     const favorites = useSelector((state) => state.favorites.items);
+    
+
+  
     const dispatch = useDispatch();
 
     const handleRemoveFavorite = (bookId) => {
       dispatch(removeFavorite({ id: bookId }));
   };
-    
 
    
     
@@ -45,7 +43,7 @@ export default function NavBar(){
                 </div>
                 <div className="flex justify-between items-center gap-4 font-extrabold max-sm:flex-col">
                 <Link href={'/'}>Home</Link>
-                {/* Affiche "Connecté" et le nom d'utilisateur si isLoggedIn est vrai */}
+                
                 {isLoggedIn ? (
                   <span className="flex items-center">Connecté en tant que {username}</span>
                 ) : (
@@ -92,20 +90,7 @@ export default function NavBar(){
                 </SheetContent>
             </Sheet>
              </div>
-                {/* <Sheet>
-                  <SheetTrigger className="flex items-center gap-1"><FiHeart className="icon"/>Favorite</SheetTrigger>
-                  <SheetContent>
-                    <SheetHeader >
-                      <SheetTitle><Link href={'/favorites'} className="flex items-center">
-                            <FiHeart  fill="red"/><span className="ml-2">Favoris</span>
-                    </Link></SheetTitle>
-                      <SheetDescription>
-                        <strong>Liste de vos favoris</strong>
-
-                      </SheetDescription>
-                    </SheetHeader>
-                  </SheetContent>
-                </Sheet> */}
+                
         </div>
     )
 }

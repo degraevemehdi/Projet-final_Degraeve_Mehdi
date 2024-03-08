@@ -6,7 +6,8 @@ import { FiHeart, FiStar, FiMessageSquare } from "react-icons/fi";
 import { useDispatch } from "react-redux";
 import { addFavorite } from "@/lib/features/favorites/favoritesSlice";
 export default function BookDetails({ params }) {
-
+    
+    const  [loading,setLoading] = useState(true)
     const [books, setBooks] = useState([]);
     const [showModal, setShowModal] = useState(false);
     const dispatch = useDispatch();
@@ -22,7 +23,7 @@ export default function BookDetails({ params }) {
 
                 
             })
-            .catch(error => console.error('Error fetching data:', error));
+            .catch(error => console.error('Error fetching data:', error)).finally(setLoading(false))
     }, []);
 
     const datafiltrer = books?.find(element => element.id == params.bookId);
@@ -35,6 +36,11 @@ export default function BookDetails({ params }) {
         setShowModal(!showModal);
     };
     
+    if (loading){
+        return <div className={styles.loadercontainer}>
+          <div className={styles.loading}></div>
+        </div>
+      }
 
     return (
         <div className="container mx-auto p-4 bg-[#FFBFBF] mt-5 ">
@@ -44,9 +50,9 @@ export default function BookDetails({ params }) {
 
             <div className="flex flex-col items-center md:flex-row md:items-center md:justify-center gap-5">
                 <div className="">
-                    <img className="w-48 h-64 object-cover rounded-lg " src={datafiltrer?.image_url} alt={datafiltrer?.title} />
+                    <img className="w-58 h-74 object-cover rounded-lg " src={datafiltrer?.image_url} alt={datafiltrer?.title} />
                 </div>
-                <div className="mt-4 md:mt-0 md:ml-4 text-center md:text-left">
+                <div className="  w-48 h-64 mt-4 md:mt-0 md:ml-4 text-center md:text-left rounded-lg">
                     <h1 className="text-xl md:text-2xl font-bold">{datafiltrer?.title}</h1>
                     <p className="text-md md:text-lg">{datafiltrer?.authors}</p>
                     <div className="flex justify-center md:justify-start items-center mt-2 ">
@@ -57,13 +63,13 @@ export default function BookDetails({ params }) {
                                 <FiStar className="text-yellow-500" /> <span>{datafiltrer?.rating}</span>
                     </div>
                     <div className="flex justify-center md:justify-start items-center mt-4">
-                    <button className="bg-white" onClick={handleAddToFavorites}>Ajoutez aux favoris</button><FiHeart fill="red"/>
+                    <button className="bg-[#0C356A] text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline transform active:scale-95 transition duration-150 ease-in-out shadow-lg hover:bg-[#104d9d]" onClick={handleAddToFavorites}>Ajoutez aux favoris</button>
                     </div>
                 </div>
-                {/* Button to open modal */}
-            <button onClick={toggleModal} className="mt-4 bg-[#0C356A]  text-white px-4 py-2 rounded hover:bg-blue-700">Voir le résumé</button>
+                
+            <button onClick={toggleModal} className="mb-6 bg-[#0C356A]  text-white px-4 py-2 rounded hover:bg-[#104d9d]">Voir le résumé</button>
 
-{/* Modal implementation */}
+
 {showModal && (
     <div className="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm flex justify-center items-center px-4 sm:px-6 lg:px-8 z-50">
         <div className="bg-white p-5 rounded-lg w-full max-w-lg sm:max-w-md md:max-w-lg lg:max-w-xl flex flex-col justify-between max-h-[80vh]">
@@ -71,7 +77,7 @@ export default function BookDetails({ params }) {
             <div className="overflow-y-auto mb-4 flex-grow">
                 <p>{datafiltrer?.description}</p>
             </div>
-            <button onClick={toggleModal} className="mt-4 bg-[#0C356A]  text-white px-4 py-2 rounded hover:bg-red-700 self-end">Fermer</button>
+            <button onClick={toggleModal} className="mt-4 bg-[#0C356A]  text-white px-4 py-2 rounded hover:bg-[#104d9d]self-end">Fermer</button>
         </div>
     </div>
 )}
